@@ -1,6 +1,0 @@
-<div class="form-group">
-  <label *ngIf="label != ''" for="{{id}}">{{label}} <span *ngIf="required" class="text-danger">*</span></label>
-  <select [multiple]="multiple" class="select2" id="{{id}}" style="width: 100%;" [disabled]="disabled">
-    <ng-content></ng-content>
-  </select>
-</div>
