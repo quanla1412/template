@@ -1,0 +1,82 @@
+<!-- wd-slider- -->
+<section class="tf-slider sl5">
+    <div class="tf-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content">
+                    <div class="heading text-center">
+                        <h2 class="text-white">Tìm công việc <br> phù hợp với bạn</h2>
+                        <p class="text-white">Resume-Library is a true performance-based job board. Enjoy custom hiring products
+                            and access to up to 10,000 new resume registrations daily, with no subscriptions or user licences.</p>
+                    </div>
+                    <div class="icon ic1 ani3">
+                        <img src="assets/img/review/icon6.png" alt="images">
+                    </div>
+                    <div class="icon ic2 ani6">
+                        <img src="assets/img/review/icon5.png" alt="images">
+                    </div>
+                    <div class="form-sl">
+                        <form method="post">
+                            <div class="row-group-search home1 st">
+                                <div class="form-group-1">
+                                    <span class="icon-search search-job"></span>
+                                    <input type="text" class="input-filter-search" placeholder="Job title, key words or company">
+                                </div>
+                                <div class="form-group-2">
+                                    <span class="icon-map-pin"></span>
+                                    <select nice-select [(ngModel)]="searchLocation" (change)="onChangeLocation($event)" id="select-location" class="select-location">
+                                        <option [ngValue]="undefined">Tất cả địa điểm{{searchLocation}}</option>
+                                        <option *ngFor="let e of locations" [ngValue]="e.id">{{e.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-4">
+                                    <button type="submit" class="btn btn-find" (click)="searchJob()">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- End Job  Search Form-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End wd-slider-->
+<!-- Job-category -->
+<section class="testimonials-category-section">
+    <div class="tf-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tf-title style-2">
+                    <div class="group-title">
+                        <h1>Tìm kiếm theo ngành nghề</h1>
+                        <p>Top các ngành nghề thịnh hành</p>
+                    </div>
+                </div>
+            </div>
+            <!-- wd-job-category -->
+            <div class=" col-md-12">
+                <div class="swiper tes-category-job">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="group-category-job padding wow fadeInUp">
+                                <div *ngFor="let e of occupations" class="job-category-box">
+                                    <div class="job-category-header">
+                                        <h1><a routerLink="/job-list" [queryParams]="{occupationId: e.id}">{{e.name}}</a></h1>
+                                        <p>{{e.availableJobQuantity}} công việc</p>
+                                    </div>
+                                    <a routerLink="/job-list" [queryParams]="{occupationId: e.id}" class="btn-category-job">Xem thêm <span
+                                            class="icon-keyboard_arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination tes-bullet style-1 category-st7"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Job-category -->
+

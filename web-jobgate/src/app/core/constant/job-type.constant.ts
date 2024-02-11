@@ -1,0 +1,5 @@
+export const JOB_TYPE = {
+    FULL_TIME: 'FULL_TIME',
+    PART_TIME: 'PART_TIME',
+    INTERNSHIP: 'INTERNSHIP',
+};

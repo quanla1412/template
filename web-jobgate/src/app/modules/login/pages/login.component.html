@@ -1,0 +1,51 @@
+<div class="login-box mx-auto">
+  <div class="login-logo">
+    <a href="#">
+    </a>
+  </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <div style="text-align: center">
+        <img src="../../../assets/img/logo-thePos.png" style="width: 200px;" alt="Logo brand">
+        <div class="input-group mb-3">
+          <input
+            (keypress)="enterEvent($event)"
+            [(ngModel)]="loginModel.username"
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="Email"/>
+          <div class="input-group-append" style="width: 10%">
+            <div class="input-group-text form-control">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input
+            (keypress)="enterEvent($event)"
+            [(ngModel)]="loginModel.password"
+            class="form-control"
+            id="login_password_input"
+            name="password"
+            placeholder="Password"
+            type="password"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button (click)="login()" class="btn btn-warning float-right">
+              Đăng nhập
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </div>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-group">
+  <div (click)="selectFiles()" class="drap-drop-file">
+    <h3 *ngIf="isEmpty()" class="drap-drop-title" style="text-align: center">{{label}}</h3>
+  </div>
+  <input #fileEl (change)="onChange(fileEl.files); fileEl.value=''" [multiple]="config.maxFilesCount > 1"
+         accept="{{config.acceptExtensions}}"
+         class="drap-drop-file-input"
+         name="name"
+         style="display: none;"
+         type="file"/>
+  <p *ngIf="errorMsg !==''" style="color: red">{{errorMsg}}</p>
+  <ng-content></ng-content>
+</div>

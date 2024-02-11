@@ -1,0 +1,12 @@
+<div class="float-right">
+  <button aria-expanded="false" aria-haspopup="true" class="btn btn-sm btn-outline-secondary" data-bs-toggle="dropdown"
+          id="{{menuId}}" type="button">
+    <i *ngIf="title == null; else titleText" class="fas fa-ellipsis-h"></i>
+    <ng-template #titleText>
+      {{title}}
+    </ng-template>
+  </button>
+  <div [attr.aria-labelledby]="menuId" class="dropdown-menu">
+    <ng-content></ng-content>
+  </div>
+</div>

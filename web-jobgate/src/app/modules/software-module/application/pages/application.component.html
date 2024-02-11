@@ -1,0 +1,204 @@
+<div class="dashboard">
+    <div class="dashboard__content">
+        <section class="page-title-dashboard">
+            <div class="themes-container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 ">
+                        <div class="title-dashboard">
+                            <div class="title-dash flex2">{{jobPosting == null ? 'Khu vực chờ ứng tuyển' : 'Ứng tuyển vị trí ' + jobPosting.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="flat-dashboard-setting flat-dashboard-setting2">
+            <div class="themes-container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 ">
+                        <div class="profile-setting bg-white">
+<!--                            <div class="author-profile flex2 border-bt">-->
+
+<!--                                <div class="wrap-img flex2">-->
+<!--                                    <div class="img-box relative">-->
+<!--                                        <img class="avatar " id="profileimg" src="./assets/img/dashboard/image-up.jpg" alt="">-->
+<!--                                    </div>-->
+<!--                                    <div id="upload-profile">-->
+<!--                                        <h5 class="fw-6">Upload a new avatar: </h5>-->
+<!--                                        <h6>JPG 80x80px</h6>-->
+<!--                                        <input class="up-file" id="tf-upload-img" type="file" name="profile" required="">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="mb-3" *ngIf="jobPosting == null">
+                                <h3 class="title-info">Công việc ứng tuyển</h3>
+                                <div class="form-infor flex flat-form border-bt">
+                                    <div class="info-box info-wd w-100">
+                                        <fieldset>
+                                            <label class="title-user fw-7">Tiêu đề <span class="text-danger">*</span></label>
+                                            <input type="text" class="input-form2" [(ngModel)]="applicant.waitingJobTitle" placeholder="Nhập tiêu đề công việc muốn ứng tuyển">
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-infor-profile">
+                                <h3 class="title-info">Thông tin cá nhân</h3>
+                                <div class="form-infor flex flat-form border-bt">
+                                    <div class="info-box info-wd">
+                                        <fieldset>
+                                            <label class="title-user fw-7">Họ tên <span class="text-danger">*</span></label>
+                                            <input type="text" class="input-form2" [(ngModel)]="applicant.user.fullName" placeholder="Nhập họ tên">
+                                        </fieldset>
+                                        <fieldset>
+                                            <label class="title-user fw-7">Số điện thoại <span class="text-danger">*</span></label>
+                                            <input type="tel" class="input-form2" [(ngModel)]="applicant.user.phone" placeholder="Nhập số điện thoại">
+                                        </fieldset>
+                                        <div id="item_date" class="dropdown titles-dropdown">
+                                            <label class="title-user fw-7">Giới tính <span class="text-danger">*</span></label>
+                                            <a class="btn-selector nolink input-form"> Chọn giới tính</a>
+                                            <ul>
+                                                <li (click)="changeGender(GENDER.MALE)"><span>Nam</span></li>
+                                                <li (click)="changeGender(GENDER.FEMALE)"><span>Nữ</span></li>
+                                            </ul>
+                                        </div>
+                                        <fieldset>
+                                            <label class="title-user fw-7">Số năm kinh nghiệm</label>
+                                            <input type="text" class="input-form2" [(ngModel)]="applicant.yearsOfExperience" placeholder="Nhập số năm kinh nghiệm">
+                                        </fieldset>
+                                    </div>
+                                    <div class="info-box info-wd">
+                                        <fieldset>
+                                            <label class="title-user fw-7">Ngày sinh <span class="text-danger">*</span></label>
+                                            <input type="date" class="input-form" [(ngModel)]="applicant.user.birthDate">
+                                        </fieldset>
+                                        <fieldset>
+                                            <label class="title-user fw-7">Email <span class="text-danger">*</span></label>
+                                            <input type="email" class="input-form2" [(ngModel)]="applicant.user.email" placeholder="Nhập email">
+                                        </fieldset>
+                                        <div id="item_qualification" class="dropdown titles-dropdown">
+                                            <label class="title-user fw-7">Trình độ học vấn</label>
+                                            <a class="btn-selector nolink input-form"> Chọn trình độ học vấn</a>
+                                            <ul>
+                                                <li (click)="changeQualification(APPLICANT_QUALIFICATION.HIGH_SCHOOL_DIPLOMA)"><span>Tốt nghiệp THPT</span></li>
+                                                <li (click)="changeQualification(APPLICANT_QUALIFICATION.BACHELOR_DEGREE)"><span>Cử nhân/ kỹ sư</span></li>
+                                                <li (click)="changeQualification(APPLICANT_QUALIFICATION.MASTER_DEGREE)"><span>Thạc sĩ</span></li>
+                                                <li (click)="changeQualification(APPLICANT_QUALIFICATION.DOCTORAL_DEGREE)"><span>Tiến sĩ</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="social-wrap border-bt mt-3">
+                                    <h3>Mạng xã hội</h3>
+                                    <div class="form-social form-wg flex flat-form">
+                                        <div class="form-box info-wd wg-box">
+                                            <fieldset class="flex2">
+                                                <span class="icon-facebook"></span>
+                                                <input type="url" class="input-form2" placeholder="URL" [(ngModel)]="applicant.linkFacebook">
+                                            </fieldset>
+                                        </div>
+                                        <div class="form-box info-wd wg-box">
+                                            <fieldset class="flex2">
+                                                <span class="icon-linkedin2"></span>
+                                                <input type="url" class="input-form2" placeholder="URL" [(ngModel)]="applicant.linkFacebook">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-wrap info-wd border-bt">
+                                    <h3>Thông tin liên hệ</h3>
+                                    <fieldset class="address-box">
+                                        <label class="title-user fw-7">Address</label>
+                                        <input type="text" class="input-form2 input-style" [(ngModel)]="applicant.user.address" placeholder="Số nhà, tên đường...">
+                                    </fieldset>
+                                    <div class="form-social form-wg flex flat-form">
+                                        <div class="form-box  wg-box">
+                                            <div id="item_city" class="dropdown titles-dropdow">
+                                                <label class="title-user color-1 fw-7">Tỉnh/ thành phố</label>
+                                                <a class="btn-selector nolink input-form">
+                                                    {{applicant.user.province.id == null ? 'Chọn tỉnh/ thành phố' : applicant.user.province.name}}
+                                                </a>
+                                                <ul class="overflow-y-scroll" style="max-height: 120px;">
+                                                    <li (click)="changeProvince(e)" *ngFor="let e of provinces"><span>{{e.name}}</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-box  wg-box">
+                                            <div id="item_district" class="dropdown titles-dropdow">
+                                                <label class="title-user color-1 fw-7">Quận/ huyện</label>
+                                                <a class="btn-selector nolink input-form">
+                                                    {{applicant.user.district.id == null ? 'Chọn quận/ huyện' : applicant.user.district.name}}
+                                                </a>
+                                                <ul class="overflow-y-scroll" style="max-height: 120px;">
+                                                    <li (click)="changeDistrict(e)" *ngFor="let e of districts"><span>{{e.name}}</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-box  wg-box">
+                                            <div id="item_ward" class="dropdown titles-dropdow">
+                                                <label class="title-user color-1 fw-7">Xã/ phường/ thị trấn</label>
+                                                <a class="btn-selector nolink input-form">
+                                                    {{applicant.user.ward.id == null ? 'Chọn xã/ phường/ thị trấn' : applicant.user.ward.name}}
+                                                </a>
+                                                <ul class="overflow-y-scroll" style="max-height: 120px;">
+                                                    <li (click)="changeWard(e)" *ngFor="let e of wards"><span>{{e.name}}</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flat-dashboard-resumes flat-dashboard-setting">
+                                    <div class="themes-container p-0">
+                                        <div class="profile-setting bg-white p-0">
+                                            <div class="author-profile border-bt">
+                                                <div class="wd-file-apply style2">
+                                                    <div class="content">
+                                                        <h3>CV ứng tuyển <span class="text-danger">*</span></h3>
+                                                            <div class="group-seclect-file">
+                                                                <div class="group-file">
+                                                                    <span *ngIf="!cvFile.file" class="custom-file-label" style="margin-left: 77px">Chưa chọn file</span>
+                                                                    <div *ngIf="cvFile.file" class="inner left ">
+                                                                        <div class="title-box">
+                                                                            <div class="sub-title fs-12 fw-6" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">{{cvFile.file.name}}</div>
+                                                                            <div class="fs-16 fw-7">
+                                                                                {{cvFile.extension.toUpperCase()}}
+                                                                            </div>
+                                                                        </div>
+                                                                        <i class=" file-icon far {{getFileIcon()}}" ></i>
+                                                                        <i class="icon-close cursor-pointer" (click)="confirmDeleteCVFile()"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="button-wrap flex2">
+                                                                <input
+                                                                        class="d-none"
+                                                                        type="file"
+                                                                        accept="application/msword, application/pdf, image/*"
+                                                                        (change)="onCVFileChange($event)"
+                                                                        #cvFileInput>
+                                                                <div class="tt-button button-browse" (click)="cvFileInput.click()">
+                                                                    <a>Chọn file</a>
+                                                                </div>
+                                                                <div class="fs-16"><a>Upload file PDF, Doc, Docx, PNG, JPEG</a> </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <div class="tt-button button-style" (click)="saveApplicant()">
+                                        <a class="btn-3">Nộp đơn</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

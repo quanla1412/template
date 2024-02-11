@@ -1,0 +1,55 @@
+<aside>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <a href="" class="sidebar-logo">HR Platform</a>
+    </div><!-- sidebar-header -->
+    <div id="sidebarMenu" class="sidebar-body">
+      <div class="nav-group show">
+        <a href="" class="nav-label">Quản lý Cơ cấu tổ chức</a>
+        <ul class="nav nav-sidebar">
+          <li class="nav-item">
+            <a
+                    [routerLinkActive]="['active']"
+                    routerLink="/company"
+                    class="nav-link"
+            >
+              <ng-template [ngIf]="router.isActive('/company', true)">
+                <i class="ri-building-4-fill"></i> <span>Công ty</span>
+              </ng-template>
+              <ng-template [ngIf]="!router.isActive('/company', true)">
+                <i class="ri-building-4-line"></i> <span>Công ty</span>
+              </ng-template>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+                    [routerLinkActive]="['active']"
+                    routerLink="/department"
+                    class="nav-link"
+            >
+              <i class="ri-organization-chart"></i> <span>Bộ phận</span>
+            </a>
+        </ul>
+      </div><!-- nav-group -->
+      <div class="nav-group show">
+        <a href="" class="nav-label">Quản lý Tuyển dụng</a>
+        <ul class="nav nav-sidebar">
+          <li class="nav-item">
+            <a
+                    [routerLinkActive]="['active']"
+                    routerLink="/job-posting"
+                    class="nav-link"
+            >
+              <ng-template [ngIf]="router.isActive('/job-posting', true)">
+                <i class="ri-file-paper-2-fill"></i> <span>Tin tuyển dụng</span>
+              </ng-template>
+              <ng-template [ngIf]="!router.isActive('/job-posting', true)">
+                <i class="ri-file-paper-2-line"></i> <span>Tin tuyển dụng</span>
+              </ng-template>
+            </a>
+          </li>
+        </ul>
+      </div><!-- nav-group -->
+    </div><!-- sidebar-body -->
+  </div><!-- sidebar -->
+</aside>

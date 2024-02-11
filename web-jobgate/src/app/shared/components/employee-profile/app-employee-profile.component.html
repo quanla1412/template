@@ -1,0 +1,23 @@
+<li class="dropdown user user-menu">
+  <!-- Menu Toggle Button -->
+  <a class="nav-link" data-toggle="dropdown" href="#">
+    <i class="far fa-user"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+    <span class="dropdown-item dropdown-header">
+      {{fullName}}
+    </span>
+    <div class="dropdown-divider"></div>
+<!--    <a class="dropdown-item dropdown-body">-->
+<!--      <div class="pull-right">-->
+<!--        <a class="btn btn-block btn-default btn-sm" routerLink="/change-password">Đổi mật khẩu</a>-->
+<!--      </div>-->
+<!--    </a>-->
+    <a class="dropdown-item dropdown-footer">
+      <div class="pull-right">
+        <a (click)="changePassword()" class="btn btn-block btn-default btn-sm">Đổi mật khẩu</a>
+        <a (click)="logout()" class="btn btn-block btn-default btn-sm">Đăng xuất</a>
+      </div>
+    </a>
+  </div>
+</li>
